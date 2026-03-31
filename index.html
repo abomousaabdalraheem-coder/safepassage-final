@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafePassage Maritime</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: sans-serif; }
+        .rtl { direction: rtl; }
+        .ltr { direction: ltr; }
+    </style>
+</head>
+<body class="bg-slate-50 ltr" id="body-tag">
+    <nav class="bg-white shadow-md p-4 flex justify-between items-center sticky top-0 z-50">
+        <div class="flex items-center gap-2 text-blue-900 font-bold text-xl">
+            <i class="fas fa-ship text-2xl"></i>
+            <span>SafePassage</span>
+        </div>
+        <div class="flex gap-2">
+            <button onclick="setLang('en')" class="px-3 py-1 bg-blue-900 text-white rounded text-sm">EN</button>
+            <button onclick="setLang('ar')" class="px-3 py-1 bg-gray-200 rounded text-sm">AR</button>
+            <button onclick="setLang('he')" class="px-3 py-1 bg-gray-200 rounded text-sm">HE</button>
+        </div>
+    </nav>
+
+    <header class="bg-blue-900 text-white py-20 px-4 text-center">
+        <h1 id="title" class="text-4xl md:text-6xl font-bold mb-4 text-white">SafePassage Maritime</h1>
+        <p id="subtitle" class="text-xl mb-8 text-blue-100">Professional Maritime Solutions & Travel</p>
+        <button onclick="window.open('https://buy.paddle.com/YOUR_LINK_HERE')" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-10 rounded-full shadow-lg">Book Now</button>
+    </header>
+
+    <a href="https://wa.me/447403676338" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl z-50">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <script>
+        const content = {
+            en: { title: "SafePassage Maritime", subtitle: "Professional Maritime Solutions & Travel", dir: "ltr" },
+            ar: { title: "سيف باساج للملاحة", subtitle: "حلول ملاحية مهنية وتنسيق سفر متكامل", dir: "rtl" },
+            he: { title: "SafePassage Maritime", subtitle: "תיאום ימי מקצועי ופתרונות נסיעות", dir: "rtl" }
+        };
+
+        function setLang(l) {
+            document.getElementById('title').innerText = content[l].title;
+            document.getElementById('subtitle').innerText = content[l].subtitle;
+            document.getElementById('body-tag').className = 'bg-slate-50 ' + content[l].dir;
+            document.getElementById('body-tag').dir = content[l].dir;
+        }
+    </script>
+</body>
+</html>
