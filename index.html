@@ -3,115 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SafePassage Maritime | Luxury Coordination</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>SafePassage Maritime | Luxury Logistics</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; transition: 0.4s; scroll-behavior: smooth; }
-        .rtl { font-family: 'Cairo', sans-serif; direction: rtl; }
-        .glass-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .hero-bg { background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; }
-        .service-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(0,0,0,0.05); }
-        .service-card:hover { transform: translateY(-12px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); border-color: #2563eb; }
-        .gradient-text { background: linear-gradient(90deg, #60a5fa, #2563eb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        /* التنسيق الملكي - كل شي هون عشان ما يخرب */
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Poppins:wght@300;400;600;800&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background-color: #f8fafc; color: #1e293b; overflow-x: hidden; transition: 0.3s; }
+        .rtl { direction: rtl; font-family: 'Cairo', sans-serif; }
+
+        /* Navbar */
+        nav { background: rgba(255, 255, 255, 0.95); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .logo { font-size: 24px; font-weight: 800; color: #1e3a8a; display: flex; align-items: center; gap: 10px; }
+        .lang-switch { background: #f1f5f9; padding: 5px; border-radius: 12px; display: flex; gap: 5px; }
+        .lang-btn { padding: 5px 12px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 12px; transition: 0.3s; }
+        .lang-btn.active { background: #2563eb; color: white; }
+
+        /* Hero Section */
+        header { 
+            height: 90vh; 
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 0 10%;
+        }
+        header h1 { font-size: clamp(2rem, 5vw, 4rem); margin-bottom: 20px; line-height: 1.2; }
+        header p { font-size: 1.2rem; color: #cbd5e1; max-width: 700px; margin-bottom: 40px; }
+        .btn-group { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+        .btn-main { background: #2563eb; color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; box-shadow: 0 10px 20px rgba(37,99,235,0.3); }
+        .btn-sec { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .btn-main:hover { transform: translateY(-3px); background: #1d4ed8; }
+
+        /* Services */
+        .services { padding: 80px 10%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; background: white; }
+        .card { background: #f8fafc; padding: 40px; border-radius: 25px; transition: 0.3s; border: 1px solid #e2e8f0; }
+        .card:hover { transform: translateY(-10px); border-color: #2563eb; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .card i { font-size: 40px; color: #2563eb; margin-bottom: 25px; }
+        .card h3 { font-size: 22px; margin-bottom: 15px; }
+        .card p { color: #64748b; line-height: 1.6; }
+
+        /* WhatsApp */
+        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #22c55e; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; box-shadow: 0 10px 30px rgba(34,197,94,0.4); z-index: 1000; text-decoration: none; transition: 0.3s; }
+        .wa-float:hover { transform: scale(1.1); }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            .btn-group { flex-direction: column; width: 100%; }
+            .btn-main, .btn-sec { width: 100%; text-align: center; }
+        }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 ltr" id="app">
+<body id="main-body">
 
-    <nav class="glass-nav fixed w-full z-50 px-6 py-4 flex justify-between items-center">
-        <div class="flex items-center gap-2 font-extrabold text-2xl text-blue-900">
-            <div class="bg-blue-600 text-white p-2 rounded-xl shadow-lg"><i class="fas fa-anchor"></i></div>
-            <span>SafePassage</span>
-        </div>
-        <div class="flex items-center gap-3">
-            <div class="bg-slate-100 p-1 rounded-xl flex gap-1 shadow-inner">
-                <button onclick="setLang('en')" id="en-btn" class="px-3 py-1 rounded-lg text-xs font-bold bg-blue-600 text-white shadow-sm transition-all">EN</button>
-                <button onclick="setLang('ar')" id="ar-btn" class="px-3 py-1 rounded-lg text-xs font-bold transition-all hover:bg-white">AR</button>
-                <button onclick="setLang('he')" id="he-btn" class="px-3 py-1 rounded-lg text-xs font-bold transition-all hover:bg-white">HE</button>
-            </div>
+    <nav>
+        <div class="logo"><i class="fas fa-anchor"></i> SafePassage</div>
+        <div class="lang-switch">
+            <button onclick="changeLang('en')" id="btn-en" class="lang-btn active">EN</button>
+            <button onclick="changeLang('ar')" id="btn-ar" class="lang-btn">AR</button>
+            <button onclick="changeLang('he')" id="btn-he" class="lang-btn">HE</button>
         </div>
     </nav>
 
-    <section class="hero-bg min-h-screen flex items-center justify-center text-center px-6">
-        <div class="max-w-4xl pt-20">
-            <span class="inline-block px-4 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-sm font-semibold mb-6 uppercase tracking-wider">Premium Maritime Logistics</span>
-            <h1 id="h-title" class="text-5xl md:text-8xl font-extrabold text-white mb-8 leading-tight">Global Maritime <br><span class="gradient-text">Excellence</span></h1>
-            <p id="h-sub" class="text-xl text-slate-300 mb-12 max-w-2xl mx-auto leading-relaxed italic">"Navigating the future of coordination, travel, and global payments for the elite maritime industry."</p>
-            <div class="flex flex-wrap justify-center gap-6">
-                <button onclick="window.open('https://buy.paddle.com/YOUR_LINK')" class="bg-blue-600 hover:bg-blue-700 text-white px-12 py-5 rounded-2xl font-extrabold shadow-2xl shadow-blue-500/40 transition-all hover:-translate-y-1 active:scale-95" id="h-cta">Book Service</button>
-                <a href="https://wa.me/447403676338" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 px-12 py-5 rounded-2xl font-extrabold transition-all" id="h-sec">Contact Us</a>
-            </div>
+    <header>
+        <h1 id="h-title">Global Maritime <br>Coordination Excellence</h1>
+        <p id="h-sub">Elite travel planning, port logistics, and secure international payment solutions for the global maritime industry.</p>
+        <div class="btn-group">
+            <a href="#" class="btn-main" id="h-cta">Book Service</a>
+            <a href="https://wa.me/447403676338" class="btn-sec" id="h-sec">Contact Us</a>
+        </div>
+    </header>
+
+    <section class="services">
+        <div class="card">
+            <i class="fas fa-ship"></i>
+            <h3 id="s1-t">Port Logistics</h3>
+            <p id="s1-p">Full vessel coordination and specialized documentation across European ports with 24/7 support.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-plane"></i>
+            <h3 id="s2-t">Crew Travel</h3>
+            <p id="s2-p">Expert flight and accommodation arrangements for maritime staff and high-end executives.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-shield-alt"></i>
+            <h3 id="s3-t">Global Payments</h3>
+            <p id="s3-p">Secure international payment processing integrated with global financial gateways.</p>
         </div>
     </section>
 
-    <section class="py-32 px-6 max-w-7xl mx-auto bg-white/50">
-        <div class="text-center mb-20">
-            <h2 id="s-head" class="text-4xl font-black mb-4 uppercase tracking-tighter">Premium Core Services</h2>
-            <div class="w-24 h-2 bg-blue-600 mx-auto rounded-full shadow-lg"></div>
-        </div>
-        <div class="grid md:grid-cols-3 gap-10">
-            <div class="service-card bg-white p-10 rounded-[3rem] shadow-sm">
-                <div class="w-20 h-20 bg-blue-50 text-blue-600 rounded-3xl flex items-center justify-center text-3xl mb-10 shadow-inner"><i class="fas fa-ship"></i></div>
-                <h3 id="s1-t" class="text-2xl font-bold mb-6">Port Logistics</h3>
-                <p id="s1-p" class="text-slate-500 text-lg leading-relaxed">Full vessel coordination and expert documentation across all European ports with specialized 24/7 support.</p>
-            </div>
-            <div class="service-card bg-white p-10 rounded-[3rem] shadow-sm border-t-4 border-t-blue-600">
-                <div class="w-20 h-20 bg-blue-600 text-white rounded-3xl flex items-center justify-center text-3xl mb-10 shadow-xl"><i class="fas fa-passport"></i></div>
-                <h3 id="s2-t" class="text-2xl font-bold mb-6">Crew Travel</h3>
-                <p id="s2-p" class="text-slate-500 text-lg leading-relaxed">Global flight and luxury accommodation arrangements for maritime staff and high-end corporate executives.</p>
-            </div>
-            <div class="service-card bg-white p-10 rounded-[3rem] shadow-sm">
-                <div class="w-20 h-20 bg-blue-50 text-blue-600 rounded-3xl flex items-center justify-center text-3xl mb-10 shadow-inner"><i class="fas fa-shield-check"></i></div>
-                <h3 id="s3-t" class="text-2xl font-bold mb-6">Global Payments</h3>
-                <p id="s3-p" class="text-slate-500 text-lg leading-relaxed">Secure, verified, and encrypted international payment processing integrated with global financial gateways.</p>
-            </div>
-        </div>
-    </section>
-
-    <a href="https://wa.me/447403676338" class="fixed bottom-10 right-10 bg-green-500 text-white w-20 h-20 rounded-full shadow-2xl flex items-center justify-center text-4xl z-50 hover:scale-110 active:scale-90 transition-all animate-bounce">
+    <a href="https://wa.me/447403676338" class="wa-float">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
-        const data = {
+        const content = {
             en: {
-                title: "Global Maritime Excellence", sub: "Navigating the future of coordination, travel, and global payments for the elite maritime industry.",
-                cta: "Book Service", sec: "Contact Us", sHead: "Premium Core Services",
-                s1t: "Port Logistics", s1p: "Full vessel coordination and documentation across Europe.",
+                t: "Global Maritime <br>Coordination Excellence",
+                s: "Elite travel planning, port logistics, and secure international payment solutions for the global maritime industry.",
+                cta: "Book Service", sec: "Contact Us",
+                s1t: "Port Logistics", s1p: "Full vessel coordination and specialized documentation across Europe.",
                 s2t: "Crew Travel", s2p: "Expert flight and accommodation arrangements for maritime staff.",
-                s3t: "Global Payments", s3p: "Secure international payment processing via Paddle.", dir: "ltr"
+                s3t: "Global Payments", s3p: "Secure international payment processing via global gateways.",
+                dir: "ltr"
             },
             ar: {
-                title: "التميز الملاحي العالمي", sub: "نقدّم مستقبل التنسيق، السفر، والمدفوعات العالمية لنخبة الصناعة الملاحية.",
-                cta: "احجز الآن", sec: "اتصل بنا", sHead: "خدماتنا الأساسية المميزة",
-                s1t: "لوجستيات الموانئ", s1p: "تنسيق كامل للسفن والوثائق في جميع الموانئ الأوروبية.",
-                s2t: "سفر الطواقم", s2p: "ترتيبات خبراء للطيران والإقامة للكوادر الملاحية الرفيعة.",
-                s3t: "مدفوعات عالمية", s3p: "معالجة مدفوعات دولية آمنة وموثقة عبر أنظمة مشفرة.", dir: "rtl"
+                t: "التميز العالمي <br>في التنسيق الملاحي",
+                s: "تخطيط سفر النخبة، لوجستيات الموانئ، وحلول المدفوعات الدولية الآمنة لصناعة الملاحة العالمية.",
+                cta: "احجز الآن", sec: "اتصل بنا",
+                s1t: "لوجستيات الموانئ", s1p: "تنسيق كامل للسفن والوثائق المتخصصة في الموانئ الأوروبية بدعم 24/7.",
+                s2t: "سفر الطواقم", s2p: "ترتيبات خبراء للطيران والإقامة للكوادر الملاحية والمديرين التنفيذيين.",
+                s3t: "مدفوعات عالمية", s3p: "معالجة مدفوعات دولية آمنة وموثقة مدمجة مع بوابات مالية عالمية.",
+                dir: "rtl"
             },
             he: {
-                title: "מצוינות ימית גלובלית", sub: "ניווט עתיד התיאום, הנסיעות והתשלומים הגלובליים לתעשייה הימית.",
-                cta: "הזמן שירות", sec: "צור קשר", sHead: "שירותי ליבה פרימיום",
-                s1t: "לוגיסטיקה נמלית", s1p: "תיאום מלא של כلي שיט ותיעוד בכל נמלי אירופה.",
-                s2t: "נסיעות צוות", s2p: "סידורי טיסות ולינה מומחים לצוותים ימיים ולמנהלים.",
-                s3t: "תשלומים גלובליים", s3p: "עיבוד תשלומים בינלאומי מאובטח ומאומת.", dir: "rtl"
+                t: "מצוינות גלובלית <br>בתיאום ימי",
+                s: "תכנון נסיעות עילית, לוגיסטיקה נמלית ופתרונות תשלום בינלאומיים מאובטחים לתעשייה הימית.",
+                cta: "הזמן שירות", sec: "צור קשר",
+                s1t: "לוגיסטיקה נמלית", s1p: "תיאום מלא של כלי שיט ותיעוד מומחה בנמלי אירופה עם תמיכה 24/7.",
+                s2t: "נסיעות צוות", s2p: "סידורי טיסות ולינה מומחים לצוותים ימיים ולמנהלים בכירים.",
+                s3t: "תשלומים גלובליים", s3p: "עיבוד תשלומים בינלאומי מאובטח ומאומת ברחבי העולם.",
+                dir: "rtl"
             }
         };
 
-        function setLang(l) {
-            const t = data[l];
-            document.getElementById('h-title').innerHTML = t.title;
-            document.getElementById('h-sub').innerText = t.sub;
+        function changeLang(l) {
+            const t = content[l];
+            document.getElementById('h-title').innerHTML = t.t;
+            document.getElementById('h-sub').innerText = t.s;
             document.getElementById('h-cta').innerText = t.cta;
             document.getElementById('h-sec').innerText = t.sec;
-            document.getElementById('s-head').innerText = t.sHead;
             document.getElementById('s1-t').innerText = t.s1t; document.getElementById('s1-p').innerText = t.s1p;
             document.getElementById('s2-t').innerText = t.s2t; document.getElementById('s2-p').innerText = t.s2p;
             document.getElementById('s3-t').innerText = t.s3t; document.getElementById('s3-p').innerText = t.s3p;
             
-            document.getElementById('app').className = 'bg-slate-50 text-slate-900 ' + t.dir;
-            document.querySelectorAll('button[id$="-btn"]').forEach(b => b.className = 'px-3 py-1 rounded-lg text-xs font-bold transition-all hover:bg-white');
-            document.getElementById(l + '-btn').className = 'px-3 py-1 rounded-lg text-xs font-bold bg-blue-600 text-white shadow-sm transition-all';
+            document.getElementById('main-body').className = (t.dir === 'rtl') ? 'rtl' : '';
+            
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('btn-' + l).classList.add('active');
         }
     </script>
 </body>
